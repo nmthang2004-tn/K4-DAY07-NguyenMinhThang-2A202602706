@@ -1,0 +1,145 @@
+CHECKPOINT 6 — BENCHMARK RETRIEVAL
+Embedding backend: MockEmbedder (MD5 deterministic; not semantic)
+Content score requires ALL answer markers in the retrieved top-3 context.
+Documents: 7
+
+=== FixedSize(500, overlap=50) ===
+chunks=46; avg_length=466.9 characters
+
+[Q1] Người bán phải phản hồi yêu cầu trả hàng trong bao nhiêu ngày?
+    unfiltered top-3:
+      #1 score=+0.2550 source=shopee_buyer_return_condition chunk=12 | hi yêu cầu được chấp nhận hoàn tiền. - Shopee Xu sẽ được hoàn lại ngay sau khi khiếu nại hoàn tất.
+      #2 score=+0.2115 source=shopee_seller_dispute_response chunk=4 | i bán nhận thông báo** và có 3 ngày làm việc để phản hồi 3. **Nếu không đồng ý:** Người bán từ chối kèm lý do và bằng chứng 4. **Shopee can thiệp:** X
+      #3 score=+0.2048 source=shopee_seller_dispute_response chunk=5 | i - Sử dụng tính năng đề xuất Hoàn tiền ngay khi phù hợp để giữ chân khách hàng - Liên hệ Shopee qua kênh hỗ trợ nếu cần hỗ trợ thêm
+    evaluation (used unfiltered): gold_doc_in_top3=True; answer_in_context=False; score=0/2
+
+[Q2] Khi giao hàng thực phẩm tươi sống bị khiếu nại, người bán phải phản hồi trong bao lâu?
+    unfiltered top-3:
+      #1 score=+0.2938 source=shopee_buyer_return_condition chunk=11 | àn Xu theo tỷ lệ giá trị sản phẩm | ### Lưu ý - Voucher Shopee Live, Video Voucher, Voucher Người dùng mới Shopee, Voucher Người dùng mới Shopee Pay, 
+      #2 score=+0.2332 source=shopee_buyer_return_condition chunk=12 | hi yêu cầu được chấp nhận hoàn tiền. - Shopee Xu sẽ được hoàn lại ngay sau khi khiếu nại hoàn tất.
+      #3 score=+0.2042 source=shopee_buyer_return_condition chunk=4 | ường hợp:** Sản phẩm không thực hiện được chức năng như mô tả của Người bán - **Áp dụng:** Tất cả sản phẩm ### Khác với mô tả - **Trường hợp:** Sản ph
+    filtered {'audience': 'seller'} top-3:
+      #1 score=+0.0888 source=shopee_seller_dispute_response chunk=4 | i bán nhận thông báo** và có 3 ngày làm việc để phản hồi 3. **Nếu không đồng ý:** Người bán từ chối kèm lý do và bằng chứng 4. **Shopee can thiệp:** X
+      #2 score=+0.0403 source=shopee_seller_dispute_response chunk=3 | ** Nếu Người bán không phản hồi trong thời gian quy định, Shopee sẽ tự động chấp nhận yêu cầu Trả hàng/Hoàn tiền của Người mua. - **Ảnh hưởng đến đánh
+      #3 score=+0.0332 source=shopee_seller_evidence_guide chunk=5 | eo hướng dẫn trên 4. **Gửi bằng chứng** kèm theo phản hồi trong vòng 3 ngày làm việc 5. **Theo dõi** kết quả xử lý từ Shopee ## 6. Lưu ý quan trọng - 
+    evaluation (used filtered): gold_doc_in_top3=True; answer_in_context=False; score=0/2
+
+[Q3] Người mua cần cung cấp gì khi yêu cầu trả hàng điện tử lỗi nhà sản xuất (DOA)?
+    unfiltered top-3:
+      #1 score=+0.3120 source=shopee_buyer_non_returnable chunk=2 | m khác theo từng thời điểm cụ thể dựa trên đánh giá từ Shopee về tính hợp lệ, minh bạch và hiệu quả. - Các thông tin sẽ được ghi chú rõ ràng tại trang
+      #2 score=+0.3088 source=shopee_buyer_warranty_policy chunk=1 | ng) - Điều kiện: sản phẩm còn tem bảo hành, không vi phạm điều kiện bảo hành ### Bảo hành Shopee (Shopee Warranty) - Được cung cấp bởi Shopee cho một 
+      #3 score=+0.1673 source=shopee_buyer_return_condition chunk=6 | sử dụng/lắp đặt/tác động, còn nguyên vẹn tem/nhãn mác/phụ kiện/quà tặng đính kèm (nếu có). - **Lưu ý:** - Từ ngày 24/11/2025, áp dụng cho nhóm người m
+    filtered {'audience': 'buyer'} top-3:
+      #1 score=+0.3120 source=shopee_buyer_non_returnable chunk=2 | m khác theo từng thời điểm cụ thể dựa trên đánh giá từ Shopee về tính hợp lệ, minh bạch và hiệu quả. - Các thông tin sẽ được ghi chú rõ ràng tại trang
+      #2 score=+0.3088 source=shopee_buyer_warranty_policy chunk=1 | ng) - Điều kiện: sản phẩm còn tem bảo hành, không vi phạm điều kiện bảo hành ### Bảo hành Shopee (Shopee Warranty) - Được cung cấp bởi Shopee cho một 
+      #3 score=+0.1673 source=shopee_buyer_return_condition chunk=6 | sử dụng/lắp đặt/tác động, còn nguyên vẹn tem/nhãn mác/phụ kiện/quà tặng đính kèm (nếu có). - **Lưu ý:** - Từ ngày 24/11/2025, áp dụng cho nhóm người m
+    evaluation (used filtered): gold_doc_in_top3=False; answer_in_context=False; score=0/2
+
+[Q4] Hậu quả của việc người bán không phản hồi khiếu nại đúng hạn là gì?
+    unfiltered top-3:
+      #1 score=+0.2785 source=shopee_seller_evidence_guide chunk=1 | công từ hệ thống Shopee ### 2.2. Video/Ảnh đóng gói - Quay video xuyên suốt quá trình đóng gói - Chụp ảnh 6 mặt của kiện hàng trước khi giao - Thể hiệ
+      #2 score=+0.2003 source=shopee_seller_evidence_guide chunk=3 | hàng (nếu có) ### Khi Người mua khiếu nại "Hàng giả/nhái" - Giấy tờ chứng minh nguồn gốc sản phẩm (hóa đơn nhập hàng, giấy ủy quyền) - Hình ảnh/video 
+      #3 score=+0.1896 source=shopee_buyer_return_condition chunk=0 | # Điều kiện chấp nhận yêu cầu Trả hàng cho Người mua ## 1. Nguyên tắc chung Shopee hiện chưa hỗ trợ yêu cầu đổi hàng. Nếu hàng nhận được có vấn đề (kh
+    evaluation (used unfiltered): gold_doc_in_top3=False; answer_in_context=False; score=0/2
+
+[Q5] Video bằng chứng đóng gói phải đáp ứng yêu cầu gì khi gửi cho Shopee?
+    unfiltered top-3:
+      #1 score=+0.2537 source=shopee_buyer_refund_timeline chunk=7 | heo phương thức hoàn tiền khi bạn gửi yêu cầu Trả hàng Hoàn tiền. ## 3. Hoàn tiền cho đơn hàng thanh toán SPayLater kết hợp Đối với các đơn hàng thanh
+      #2 score=+0.1933 source=shopee_buyer_return_timeline chunk=0 | # Thời hạn yêu cầu Trả hàng Hoàn tiền cho Người mua ## 1. Thời hạn tiêu chuẩn Người mua có thể yêu cầu Trả hàng/Hoàn tiền trong **vòng 07 ngày** kể từ
+      #3 score=+0.1706 source=shopee_buyer_return_condition chunk=4 | ường hợp:** Sản phẩm không thực hiện được chức năng như mô tả của Người bán - **Áp dụng:** Tất cả sản phẩm ### Khác với mô tả - **Trường hợp:** Sản ph
+    evaluation (used unfiltered): gold_doc_in_top3=False; answer_in_context=False; score=0/2
+Strategy score: 0/10
+
+=== SentenceChunker(max_sentences=3) ===
+chunks=41; avg_length=474.8 characters
+
+[Q1] Người bán phải phản hồi yêu cầu trả hàng trong bao nhiêu ngày?
+    unfiltered top-3:
+      #1 score=+0.3128 source=shopee_seller_evidence_guide chunk=5 | **Theo dõi** kết quả xử lý từ Shopee ## 6. Lưu ý quan trọng - Bằng chứng phải được thu thập **NGAY khi nhận hàng** từ đơn vị vận chuyển - Luôn quay vi
+      #2 score=+0.2934 source=shopee_seller_evidence_guide chunk=4 | **Xem xét** yêu cầu và quyết định phản hồi 3. **Chuẩn bị bằng chứng** theo hướng dẫn trên 4. **Gửi bằng chứng** kèm theo phản hồi trong vòng 3 ngày là
+      #3 score=+0.2587 source=shopee_seller_dispute_response chunk=1 | ## 2. Thời gian phản hồi ### Thời gian phản hồi tiêu chuẩn Người bán cần phản hồi yêu cầu Trả hàng/Hoàn tiền của Người mua trong vòng **3 ngày làm việ
+    evaluation (used unfiltered): gold_doc_in_top3=True; answer_in_context=True; score=1/2
+
+[Q2] Khi giao hàng thực phẩm tươi sống bị khiếu nại, người bán phải phản hồi trong bao lâu?
+    unfiltered top-3:
+      #1 score=+0.2768 source=shopee_buyer_return_condition chunk=5 | | | Một/một vài sản phẩm | Không hoàn mã | Hoàn Xu theo tỷ lệ giá trị sản phẩm | ### Trả hàng & Hoàn tiền | Loại khiếu nại | Mã giảm giá | Shopee Xu |
+      #2 score=+0.2411 source=shopee_buyer_refund_timeline chunk=1 | - Shopee sẽ hoàn trước 100% tiền hàng (tiền hoàn bao gồm số tiền gốc và không bao gồm phí chuyển đổi trả góp) vào tài khoản SPayLater của bạn. - Số ti
+      #3 score=+0.1805 source=shopee_buyer_warranty_policy chunk=2 | Quy trình yêu cầu bảo hành 1. **Kiểm tra thông tin bảo hành:** Xem thời hạn và điều kiện bảo hành trên trang sản phẩm 2. **Liên hệ người bán:** Gửi yê
+    filtered {'audience': 'seller'} top-3:
+      #1 score=+0.1735 source=shopee_seller_evidence_guide chunk=1 | ## 2. Bằng chứng giao hàng ### 2.1. Giấy tờ vận chuyển - Biên nhận giao hàng từ đơn vị vận chuyển - Ảnh chụp gói hàng trước khi giao - Xác nhận giao h
+      #2 score=+0.1460 source=shopee_seller_dispute_response chunk=0 | # Thời gian Người bán phản hồi khiếu nại Trả hàng ## 1. Tổng quan Khi Người mua gửi yêu cầu Trả hàng/Hoàn tiền, Người bán cần phản hồi trong một khoản
+      #3 score=+0.1219 source=shopee_seller_evidence_guide chunk=3 | Yêu cầu về bằng chứng ### Chất lượng - Hình ảnh: rõ nét, không mờ nhòe, dung lượng không quá 5MB/ảnh - Video: xuyên suốt, không cắt ghép, dung lượng k
+    evaluation (used filtered): gold_doc_in_top3=True; answer_in_context=False; score=0/2
+
+[Q3] Người mua cần cung cấp gì khi yêu cầu trả hàng điện tử lỗi nhà sản xuất (DOA)?
+    unfiltered top-3:
+      #1 score=+0.3515 source=shopee_buyer_return_timeline chunk=2 | Sản phẩm điện tử có hư hỏng từ nhà sản xuất (DOA) - **Thời hạn:** 30 ngày kể từ ngày nhận hàng - **Áp dụng cho:** Điện thoại, laptop, máy tính bảng, v
+      #2 score=+0.1919 source=shopee_seller_evidence_guide chunk=4 | **Xem xét** yêu cầu và quyết định phản hồi 3. **Chuẩn bị bằng chứng** theo hướng dẫn trên 4. **Gửi bằng chứng** kèm theo phản hồi trong vòng 3 ngày là
+      #3 score=+0.1527 source=shopee_seller_dispute_response chunk=6 | **Thực hiện hoàn tiền:** Nếu yêu cầu được chấp nhận ## 6. Mẹo cho Người bán - Luôn kiểm tra và phản hồi yêu cầu nhanh chóng - Chuẩn bị sẵn bằng chứng 
+    filtered {'audience': 'buyer'} top-3:
+      #1 score=+0.3515 source=shopee_buyer_return_timeline chunk=2 | Sản phẩm điện tử có hư hỏng từ nhà sản xuất (DOA) - **Thời hạn:** 30 ngày kể từ ngày nhận hàng - **Áp dụng cho:** Điện thoại, laptop, máy tính bảng, v
+      #2 score=+0.1279 source=shopee_buyer_warranty_policy chunk=4 | Thời gian phản hồi - Yêu cầu bảo hành sẽ được phản hồi trong vòng **3-5 ngày làm việc** - Thời gian xử lý bảo hành có thể kéo dài tùy theo từng trường
+      #3 score=+0.0942 source=shopee_buyer_refund_timeline chunk=0 | # Thời gian nhận tiền hoàn và cách kiểm tra tiền hoàn ## 1. Thời gian nhận tiền hoàn theo phương thức thanh toán Sau khi gửi trả hàng, bạn sẽ nhận đượ
+    evaluation (used filtered): gold_doc_in_top3=True; answer_in_context=True; score=2/2
+
+[Q4] Hậu quả của việc người bán không phản hồi khiếu nại đúng hạn là gì?
+    unfiltered top-3:
+      #1 score=+0.3072 source=shopee_buyer_return_condition chunk=2 | - Ngoại trừ một số loại sản phẩm, bao gồm: - Sản phẩm thuộc danh sách hạn chế trả hàng - Các sản phẩm mua tại Shopee Mart - Một số sản phẩm riêng biệt
+      #2 score=+0.2433 source=shopee_buyer_return_timeline chunk=2 | Sản phẩm điện tử có hư hỏng từ nhà sản xuất (DOA) - **Thời hạn:** 30 ngày kể từ ngày nhận hàng - **Áp dụng cho:** Điện thoại, laptop, máy tính bảng, v
+      #3 score=+0.2335 source=shopee_buyer_refund_timeline chunk=4 | ## 3. Hoàn tiền cho đơn hàng thanh toán SPayLater kết hợp Đối với các đơn hàng thanh toán bằng SPayLater kết hợp với các phương thức thanh toán khác: 
+    evaluation (used unfiltered): gold_doc_in_top3=False; answer_in_context=False; score=0/2
+
+[Q5] Video bằng chứng đóng gói phải đáp ứng yêu cầu gì khi gửi cho Shopee?
+    unfiltered top-3:
+      #1 score=+0.2864 source=shopee_buyer_return_condition chunk=0 | # Điều kiện chấp nhận yêu cầu Trả hàng cho Người mua ## 1. Nguyên tắc chung Shopee hiện chưa hỗ trợ yêu cầu đổi hàng. Nếu hàng nhận được có vấn đề (kh
+      #2 score=+0.2572 source=shopee_buyer_non_returnable chunk=2 | - Các thông tin sẽ được ghi chú rõ ràng tại trang chi tiết/hoặc hình ảnh sản phẩm hoặc các nội dung đăng tải công khai khác. ## 3. Lưu ý - Danh sách n
+      #3 score=+0.2103 source=shopee_seller_evidence_guide chunk=4 | **Xem xét** yêu cầu và quyết định phản hồi 3. **Chuẩn bị bằng chứng** theo hướng dẫn trên 4. **Gửi bằng chứng** kèm theo phản hồi trong vòng 3 ngày là
+    evaluation (used unfiltered): gold_doc_in_top3=True; answer_in_context=False; score=0/2
+Strategy score: 3/10
+
+=== HeadingChunker(chunk_size=500, levels=1-3) ===
+chunks=99; avg_length=197.3 characters
+
+[Q1] Người bán phải phản hồi yêu cầu trả hàng trong bao nhiêu ngày?
+    unfiltered top-3:
+      #1 score=+0.2805 source=shopee_seller_dispute_response chunk=4 | ### Các trường hợp đặc biệt - **Đơn hàng thực phẩm tươi sống & đông lạnh:** Phản hồi trong vòng 24 giờ - **Đơn hàng có giá trị cao (trên 1 triệu đồng)
+      #2 score=+0.2578 source=shopee_seller_evidence_guide chunk=1 | ## 1. Tổng quan Khi nhận yêu cầu Trả hàng/Hoàn tiền từ Người mua, Người bán cần cung cấp bằng chứng để bảo vệ quyền lợi của mình. Việc chuẩn bị bằng c
+      #3 score=+0.2200 source=shopee_buyer_refund_timeline chunk=0 | # Thời gian nhận tiền hoàn và cách kiểm tra tiền hoàn
+    evaluation (used unfiltered): gold_doc_in_top3=True; answer_in_context=False; score=0/2
+
+[Q2] Khi giao hàng thực phẩm tươi sống bị khiếu nại, người bán phải phản hồi trong bao lâu?
+    unfiltered top-3:
+      #1 score=+0.3072 source=shopee_buyer_return_condition chunk=21 | ### Quy định về bằng chứng - Hình ảnh: Không quá 5MB/ảnh - Video: Không quá 100 MB/video (tối đa 1 phút) - Nếu video/hình ảnh có dung lượng lớn hơn, t
+      #2 score=+0.2356 source=shopee_seller_dispute_response chunk=10 | ## 5. Quy trình xử lý khiếu nại của Shopee 1. **Người mua gửi yêu cầu** Trả hàng/Hoàn tiền 2. **Người bán nhận thông báo** và có 3 ngày làm việc để ph
+      #3 score=+0.1911 source=shopee_buyer_return_condition chunk=18 | ### Khiếu nại chưa nhận được hàng Không cần cung cấp bất kỳ bằng chứng nào. Shopee sẽ tự động xử lý yêu cầu dựa trên hệ thống theo dõi đơn hàng.
+    filtered {'audience': 'seller'} top-3:
+      #1 score=+0.2356 source=shopee_seller_dispute_response chunk=10 | ## 5. Quy trình xử lý khiếu nại của Shopee 1. **Người mua gửi yêu cầu** Trả hàng/Hoàn tiền 2. **Người bán nhận thông báo** và có 3 ngày làm việc để ph
+      #2 score=+0.1768 source=shopee_seller_dispute_response chunk=0 | # Thời gian Người bán phản hồi khiếu nại Trả hàng
+      #3 score=+0.1544 source=shopee_seller_evidence_guide chunk=7 | ### Khi Người mua khiếu nại "Hàng bể vỡ" - Hình ảnh/video sản phẩm khi đóng gói (nguyên vẹn) - Video/ảnh kiện hàng trước khi giao cho đơn vị vận chuyể
+    evaluation (used filtered): gold_doc_in_top3=True; answer_in_context=False; score=0/2
+
+[Q3] Người mua cần cung cấp gì khi yêu cầu trả hàng điện tử lỗi nhà sản xuất (DOA)?
+    unfiltered top-3:
+      #1 score=+0.2847 source=shopee_buyer_refund_timeline chunk=3 | ### Ví ShopeePay | Tiền hoàn trả được gửi qua | Thời gian nhận được tiền hoàn | |---|---| | Ví ShopeePay | 24 giờ (với điều kiện Ví ShopeePay vẫn hoạt
+      #2 score=+0.2548 source=shopee_seller_dispute_response chunk=7 | ### Từ chối yêu cầu Người bán có thể từ chối nếu: - Người mua không cung cấp đủ bằng chứng hợp lệ - Yêu cầu không thuộc các trường hợp được phép trả h
+      #3 score=+0.2499 source=shopee_buyer_return_condition chunk=24 | ### Trả hàng & Hoàn tiền | Loại khiếu nại | Mã giảm giá | Shopee Xu | |---|---|---| | Toàn bộ sản phẩm | Mã giảm giá sẽ được hoàn | Hoàn lại Xu theo s
+    filtered {'audience': 'buyer'} top-3:
+      #1 score=+0.2847 source=shopee_buyer_refund_timeline chunk=3 | ### Ví ShopeePay | Tiền hoàn trả được gửi qua | Thời gian nhận được tiền hoàn | |---|---| | Ví ShopeePay | 24 giờ (với điều kiện Ví ShopeePay vẫn hoạt
+      #2 score=+0.2499 source=shopee_buyer_return_condition chunk=24 | ### Trả hàng & Hoàn tiền | Loại khiếu nại | Mã giảm giá | Shopee Xu | |---|---|---| | Toàn bộ sản phẩm | Mã giảm giá sẽ được hoàn | Hoàn lại Xu theo s
+      #3 score=+0.1969 source=shopee_buyer_non_returnable chunk=1 | ## 1. Sản phẩm hạn chế trả hàng là gì? Sản phẩm hạn chế trả hàng là những sản phẩm có tính đặc thù cao, dễ hư hỏng hoặc cần điều kiện bảo quản nghiêm 
+    evaluation (used filtered): gold_doc_in_top3=False; answer_in_context=False; score=0/2
+
+[Q4] Hậu quả của việc người bán không phản hồi khiếu nại đúng hạn là gì?
+    unfiltered top-3:
+      #1 score=+0.2546 source=shopee_seller_evidence_guide chunk=9 | ### Khi Người mua khiếu nại "Thiếu hàng" - Video/ảnh quá trình đóng gói cho thấy đầy đủ sản phẩm - Video/ảnh kiện hàng trước khi giao - Cân nặng gói h
+      #2 score=+0.2247 source=shopee_seller_evidence_guide chunk=4 | ### 2.2. Video/Ảnh đóng gói - Quay video xuyên suốt quá trình đóng gói - Chụp ảnh 6 mặt của kiện hàng trước khi giao - Thể hiện rõ: tình trạng sản phẩ
+      #3 score=+0.2203 source=shopee_seller_evidence_guide chunk=16 | ## 6. Lưu ý quan trọng - Bằng chứng phải được thu thập **NGAY khi nhận hàng** từ đơn vị vận chuyển - Luôn quay video mở hàng khi nhận để có bằng chứng
+    evaluation (used unfiltered): gold_doc_in_top3=False; answer_in_context=False; score=0/2
+
+[Q5] Video bằng chứng đóng gói phải đáp ứng yêu cầu gì khi gửi cho Shopee?
+    unfiltered top-3:
+      #1 score=+0.2660 source=shopee_buyer_warranty_policy chunk=7 | ### Điều kiện không được bảo hành - Hư hỏng do va đập, rơi vỡ, người dùng tự ý sửa chữa - Hư hỏng do thiên tai, cháy nổ, nước vào trong - Sản phẩm đã 
+      #2 score=+0.2225 source=shopee_buyer_return_timeline chunk=4 | ### 2.2. Sản phẩm dễ hư hỏng / thực phẩm - **Thời hạn:** 24 giờ kể từ khi nhận hàng - **Áp dụng cho:** Thực phẩm tươi, đông lạnh, hoa tươi, và các sản
+      #3 score=+0.2193 source=shopee_buyer_refund_timeline chunk=13 | ## 3. Hoàn tiền cho đơn hàng thanh toán SPayLater kết hợp Đối với các đơn hàng thanh toán bằng SPayLater kết hợp với các phương thức thanh toán khác: 
+    evaluation (used unfiltered): gold_doc_in_top3=False; answer_in_context=False; score=0/2
+Strategy score: 0/10
